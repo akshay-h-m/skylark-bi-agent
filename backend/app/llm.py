@@ -21,15 +21,17 @@ def ask_llm(prompt):
 
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://skylark-bi-agent.onrender.com",
+        "X-Title": "Skylark BI Agent"
     }
 
     payload = {
-        "model": MODEL,
+        "model": "mistralai/mistral-7b-instruct",
         "messages": [
             {
                 "role": "system",
-                "content": "You are an executive Business Intelligence AI assistant. Never use markdown symbols like ** or *."
+                "content": "You are an executive Business Intelligence AI assistant."
             },
             {
                 "role": "user",
@@ -42,7 +44,7 @@ def ask_llm(prompt):
 
     try:
         response = requests.post(
-            API_URL,
+            "https://openrouter.ai/api/v1/chat/completions",
             headers=headers,
             json=payload,
             timeout=60
@@ -51,13 +53,9 @@ def ask_llm(prompt):
         data = response.json()
 
         if "choices" in data:
-            raw_text = data["choices"][0]["message"]["content"]
-            return clean_response(raw_text)
+            return data["choices"][0]["message"]["content"]
 
-        if "error" in data:
-            return f"LLM Error: {data['error']}"
-
-        return str(data)
+        return f"LLM Error: {data}"
 
     except Exception as e:
         return f"LLM Exception: {str(e)}"
