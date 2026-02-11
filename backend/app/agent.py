@@ -191,12 +191,12 @@ Context:
 {context_note}
 
 Formatting Rules:
-- Start with a 2-3 sentence Executive Summary.
-- Then provide Key Metrics (bullet format).
-- Then Risks (if any concentration >50% highlight clearly).
-- Then Recommendations.
-- Be concise, sharp, and boardroom-ready.
-- No fluff. No disclaimers. No invented data.
+- Adapt structure based on the question.
+- If question is strategic (e.g., "Is pipeline healthy?"), include Risks and Recommendations.
+- If question is focused (e.g., "What are the risks?"), answer directly without repeating full metrics.
+- If question is numeric (e.g., "Which stage highest?"), provide concise answer with key value.
+- Avoid repeating full breakdown unless explicitly requested.
+.
 
 Instructions:
 - Answer analytically.
