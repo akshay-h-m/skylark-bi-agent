@@ -19,6 +19,8 @@ def clean_response(text):
 
 def ask_llm(prompt):
 
+    print("OPENROUTER KEY LOADED:", OPENROUTER_API_KEY)
+
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json",
