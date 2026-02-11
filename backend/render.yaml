@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: skylark-bi-backend
+    runtime: python
+    buildCommand: ""
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: MONDAY_API_KEY
+        sync: false
+      - key: DEALS_BOARD_ID
+        sync: false
+      - key: WORK_BOARD_ID
+        sync: false
+
