@@ -82,7 +82,30 @@ export default function Chat() {
             </div>
           </div>
         ))}
-        {loading && <div>Thinking...</div>}
+        {loading && (
+  <div
+    style={{
+      marginBottom: 15,
+      textAlign: "left"
+    }}
+  >
+    <div
+      style={{
+        display: "inline-block",
+        padding: "10px 14px",
+        borderRadius: 12,
+        background: "#e5e5e5",
+        color: "#000",
+        maxWidth: "80%",
+        fontFamily: "system-ui, -apple-system, sans-serif",
+        lineHeight: 1.5
+      }}
+    >
+      Analyzing business metrics...
+    </div>
+  </div>
+)}
+
         <div ref={chatEndRef} />
       </div>
 

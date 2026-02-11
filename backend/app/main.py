@@ -31,4 +31,7 @@ def chat(q: Query):
     response = handle_query(q.message, deals_df, work_df)
 
     return {"response": response}
+@app.get("/")
+def root():
+    return {"status": "Skylark BI Agent Live"}
 
